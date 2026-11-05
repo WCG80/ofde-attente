@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Observatoire des Français d'Europe (OFDE)</title>
+<meta name="description" content="Un observatoire indépendant dédié aux Français établis en Europe. Notre site ouvre bientôt.">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+@font-face { font-family: "EB Garamond"; src: url("polices/eb-garamond-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("polices/montserrat-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Montserrat"; src: url("polices/montserrat-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+:root { --navy: #00167A; --red: #D9070F; --paper: #F7F8FA; --ink: #1C1B19; --grey: #5F6368; --white: #FFFFFF; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.6 "Montserrat", "Helvetica Neue", Arial, sans-serif; }
+main { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 16px; }
+.carte { width: 100%; max-width: 620px; background: var(--white); border-top: 4px solid var(--navy); padding: 48px 40px; text-align: center; }
+.logo { display: block; width: 100%; max-width: 300px; height: auto; margin: 0 auto 36px; }
+h1 { margin: 0 0 16px; color: var(--navy); font: 400 clamp(2rem, 7vw, 2.75rem)/1.15 "EB Garamond", Garamond, "Times New Roman", serif; }
+.trait { width: 56px; height: 3px; margin: 0 auto 24px; background: var(--red); }
+p { margin: 0 0 16px; }
+form { margin-top: 28px; }
+label { display: block; margin-bottom: 8px; font-weight: 600; text-align: left; }
+.ligne { display: flex; gap: 8px; }
+input[type="email"] { flex: 1; min-width: 0; padding: 12px 14px; border: 1px solid var(--grey); border-radius: 4px; background: var(--white); color: var(--ink); font: inherit; }
+button { padding: 12px 20px; border: 0; border-radius: 4px; background: var(--navy); color: var(--white); font: 600 1rem "Montserrat", "Helvetica Neue", Arial, sans-serif; cursor: pointer; }
+button:disabled { opacity: .65; cursor: wait; }
+input:focus-visible, button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
+.piege { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.message { min-height: 1.6em; margin: 12px 0 0; font-weight: 600; text-align: left; }
+.message.ok { color: var(--navy); }
+.message.erreur { color: #B00610; }
+a { color: var(--navy); }
+.contact { margin: 28px 0 0; font-size: .9375rem; }
+details { width: 100%; max-width: 620px; margin-top: 16px; color: var(--grey); font-size: .875rem; }
+summary { padding: 8px 0; cursor: pointer; text-align: center; }
+h2 { margin: 20px 0 6px; color: var(--navy); font: 600 .9375rem "Montserrat", "Helvetica Neue", Arial, sans-serif; }
+details p { margin-bottom: 8px; }
+@media (max-width: 520px) {
+  .carte { padding: 36px 20px; }
+  .ligne { flex-direction: column; }
+  button { width: 100%; }
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="carte">
+    <img class="logo" src="logo-ofde.png" width="720" height="329" alt="OFDE – Observatoire des Français d'Europe">
+    <h1>Notre site ouvre bientôt</h1>
+    <div class="trait"></div>
+    <p>Un observatoire indépendant dédié aux Français établis en Europe.</p>
+
+    <form id="formulaire" novalidate>
+      <label for="email">Recevez un e-mail le jour de l'ouverture</label>
+      <div class="ligne">
+        <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="votre@email.fr" aria-describedby="message">
+        <button id="bouton" type="submit">Me prévenir</button>
+      </div>
+      <div class="piege" aria-hidden="true">
+        <label for="site_web">Ne pas remplir ce champ</label>
+        <input id="site_web" name="site_web" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+    </form>
+
+    <p class="contact">Une question ? <a href="mailto:contact@ofde.org">contact@ofde.org</a></p>
+  </div>
+
+  <details>
+    <summary>Mentions légales et données personnelles</summary>
+    <h2>Éditeur du site</h2>
+    <p>Le site www.ofde.org est édité par l'Observatoire des Français d'Europe (OFDE), association loi 1901 à but non lucratif.<br>
+    Siège : 24 avenue du Professeur Cadiot, 94700 Maisons-Alfort, France.<br>
+    Courriel : <a href="mailto:contact@ofde.org">contact@ofde.org</a><br>
+    RNA : W941021202. SIREN : 104109293. SIRET : 104 109 293 00019.</p>
+    <h2>Directrice de la publication</h2>
+    <p>Wafa Gonzalez, présidente de l'association.</p>
+    <h2>Hébergeur</h2>
+    <p>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.<br>
+    Téléphone : +1&nbsp;877&nbsp;448&nbsp;4820. <a href="https://github.com">github.com</a></p>
+    <h2>Données personnelles</h2>
+    <p>Ce formulaire recueille votre adresse e-mail, avec votre accord, pour vous prévenir de l'ouverture du site. Elle est supprimée après l'ouverture, et au plus tard 12 mois après votre inscription.</p>
+    <p>Pour limiter les envois massifs, une empreinte irréversible de votre adresse IP est conservée 1 heure au maximum. Elle n'est jamais rattachée à votre adresse e-mail.</p>
+    <p>Votre adresse est conservée chez Supabase, dans l'Union européenne, à Stockholm (Suède). L'hébergeur GitHub ne la reçoit pas.</p>
+    <p>Vous pouvez demander l'accès à vos données, leur rectification ou leur effacement à <a href="mailto:contact@ofde.org">contact@ofde.org</a>. Vous pouvez aussi adresser une réclamation à la CNIL : <a href="https://www.cnil.fr">www.cnil.fr</a>.</p>
+    <h2>Cookies</h2>
+    <p>Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience ou de publicité.</p>
+  </details>
+</main>
+
+<script>
+(function () {
+  var URL_RPC = "https://wfdtsuwpvzpplsulbiel.supabase.co/rest/v1/rpc/inscrire_ouverture";
+  var CLE_PUBLIQUE = "sb_publishable_ggBsfDNqGuY6yvohFcIhag_g3bBOjyH";
+  var ouverture = Date.now();
+  var formulaire = document.getElementById("formulaire");
+  var champ = document.getElementById("email");
+  var bouton = document.getElementById("bouton");
+  var message = document.getElementById("message");
+
+  var ERREURS = {
+    invalide: "Vérifiez votre adresse e-mail.",
+    trop_rapide: "Merci de patienter quelques secondes, puis de réessayer.",
+    quota: "Trop d'envois pour le moment. Merci de réessayer plus tard."
+  };
+  var ERREUR_GENERALE = "L'envoi n'a pas abouti. Merci de réessayer, ou d'écrire à contact@ofde.org.";
+
+  function afficher(texte, classe) {
+    message.textContent = texte;
+    message.className = "message " + classe;
+  }
+
+  formulaire.addEventListener("submit", function (evenement) {
+    evenement.preventDefault();
+    var email = champ.value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      afficher(ERREURS.invalide, "erreur");
+      champ.focus();
+      return;
+    }
+    bouton.disabled = true;
+    afficher("", "");
+    fetch(URL_RPC, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", apikey: CLE_PUBLIQUE, Authorization: "Bearer " + CLE_PUBLIQUE },
+      body: JSON.stringify({
+        p_email: email,
+        p_site_web: document.getElementById("site_web").value,
+        p_delai_ms: Date.now() - ouverture
+      })
+    }).then(function (reponse) {
+      if (reponse.ok) {
+        formulaire.reset();
+        afficher("Merci, nous vous préviendrons le jour de l'ouverture.", "ok");
+        return;
+      }
+      return reponse.json().catch(function () { return {}; }).then(function (corps) {
+        afficher(ERREURS[corps.message] || ERREUR_GENERALE, "erreur");
+      });
+    }).catch(function () {
+      afficher(ERREUR_GENERALE, "erreur");
+    }).finally(function () {
+      bouton.disabled = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
